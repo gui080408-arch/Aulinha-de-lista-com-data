@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Guilherme Santos & Matheus Gonçalves</h1>
+    </header>
+    <section>
+        <form id="formu">
+            <label for="atividadeinput">Atividade:</label>
+            <input type="text" id="atividadeinput" placeholder="Insira aqui sua atividade" required maxlength="50">
+            <label for="data">Data:</label>
+            <input type="date" name="data" id="data">
+            <input type="submit" value="Adicionar">
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th>Atividade</th>
+                    <th>Data</th>
+                </tr>
+                <tbody id="corpo">
+                    <!-- informações vem aqui -->
+                </tbody>
+            </thead>
+        </table>
+    </section>
+    <section>
+        <div class="text">
+            <h1>motivação do site</h1>
+            <p>Eu fui criado por Guilherme Santos E Matheus Gonçalves dos Santos para suprir as necessidades das pessoas que precisam organizar suas tarefas em um local específico, para isso, eu existo</p>
+        </div>
+            <a href="https://bongo.cat" target="_blank"><img src="https://tse1.mm.bing.net/th/id/OIP.fd3lyC8V0-j67Xx9vMu1RgHaHa?cb=12&rs=1&pid=ImgDetMain&… alt="bongo cat"></a>
+    </section>
+</body>
+ 
+    <script>
+        const formulario = document.getElementById('formu');
+        const atividade = document.getElementById('atividadeinput');
+        const data = document.getElementById('data');
+        const tabelac = document.getElementById('corpo');
+ 
+        formulario.addEventListener ('submit', function(event){
+            event.preventDefault();
+ 
+            const ativi = atividade.value.trim();
+            const dataa = document.getElementById('data').value;
+           
+ 
+            if (ativi && dataa) {
+                const linha = document.createElement('tr');
+                const ativid = document.createElement('td');
+                    ativid.textContent = ativi;
+                const dataas = document.createElement('td');
+                const dataformatada = new Date(dataa).toLocaleDateString('pt-BR');
+                
+                    dataas.textContent = dataformatada;
+               
+                 linha.appendChild(ativid);
+                 linha.appendChild(dataas);
+ 
+                 tabelac.appendChild(linha);
+ 
+                 data.value = '';
+                 ativi.value = '';
+               
+             
+                
+            }
+          
+            
+        });
+        
+    </script>
+</html>
